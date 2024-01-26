@@ -65,7 +65,7 @@ class Server:
         except IndexException as e:
             return []
 
-    def get_hyper(self, page: int = 1, page_size: int = 10):
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         """returns a dictionary of hypermedia keys and values
 
         Args:
