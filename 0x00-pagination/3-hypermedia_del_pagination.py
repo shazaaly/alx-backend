@@ -46,7 +46,7 @@ class Server:
             data = index_dict[0:10]
         elif index is None:
             index = index
-        data = index_dict[index] if index in index_dict else None
+        data = [index_dict[index] if index in index_dict else None]
         return{
             "index": index,
             "next_index": index + 1,
