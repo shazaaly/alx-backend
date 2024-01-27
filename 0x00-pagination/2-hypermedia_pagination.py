@@ -72,15 +72,15 @@ class Server:
             page (int, optional):Defaults to 1.
             page_size (int, optional):Defaults to 10.
         """
-        data = self.dataset()
-        total_pages = self.get_page(1, 10)
+        data = self.get_page(page, page_size)
+        total_pages = len(self.dataset()) // page_size
 
         dict = {
-            "page_size": len(self.dataset()),
+            "page_size": page_size if page_size <= len(data) else len(data),
             "page": page,
             "data": data,
             "next_page": page + 1 if page >= 0 else None,
             "prev_page": page - 1 if page >= 1 else None,
-            "total_pages": math.ceil(len(self.dataset()) // page_size)
+            "total_pages": total_pages
             }
         return dict
