@@ -47,7 +47,7 @@ class Server:
         elif index is None:
             index = index
         data = [index_dict[index] if index in index_dict else None]
-        return{
+        return {
             "index": index,
             "next_index": index + 1,
             "page_size": page_size,
