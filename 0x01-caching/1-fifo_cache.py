@@ -26,7 +26,7 @@ class FIFOCache(BaseCaching):
         if len(self.cache_data) > capacity:
             key_to_pop = self.order.popleft()
             del self.cache_data[key_to_pop]
-            print(f"DISCARDED: {key_to_pop}")
+            print(f"DISCARD: {key_to_pop}")
 
     def get(self, key):
         """ return the value in self.cache_data linked to key.
