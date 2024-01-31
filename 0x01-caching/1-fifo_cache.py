@@ -20,7 +20,7 @@ class FIFOCache(BaseCaching):
             return
         capacity = BaseCaching.MAX_ITEMS
         discarded = None
-        if len(self.cache_data) > capacity:
+        if len(self.cache_data) >= capacity:
             discarded, _ = self.cache_data.popitem(last=False)
         print(f"DISCARD: {discarded}\n")
         self.cache_data[key] = item
