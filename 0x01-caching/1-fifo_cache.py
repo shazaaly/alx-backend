@@ -20,11 +20,11 @@ class FIFOCache(BaseCaching):
             return
         capacity = BaseCaching.MAX_ITEMS
         discarded = None
-        if key not in self.cache_data:
-            self.cache_data[key] = item
         if len(self.cache_data) > capacity:
-            discarded = self.cache_data.popitem(last=False)
+            discarded, _ = self.cache_data.popitem(last=False)
         print(f"DISCARD: {discarded}\n")
+        self.cache_data[key] = item
+
         
     def get(self, key):
         """ return the value in self.cache_data linked to key."""
