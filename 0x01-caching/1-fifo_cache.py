@@ -16,7 +16,7 @@ class FIFOCache(BaseCaching):
           
     def put(self, key, item):
         """ put key value pair into cache"""
-        if (not key or not item):
+        if (key is None or item is None):
             return
         capacity = BaseCaching.MAX_ITEMS
         discarded = None
