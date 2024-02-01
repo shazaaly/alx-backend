@@ -87,3 +87,4 @@ Then you can choose another caching system and continue.
 ### Switching Cache Systems
 
 - Use the `switch` command at any time to change the caching strategy. The CLI will again prompt
+- [Github]https://docs.google.com/document/d/1izobbfq0D12o6SMCRGWzyplT30yfS63Uai-0hp9ZRSo/edit?usp=sharing
