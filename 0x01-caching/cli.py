@@ -54,7 +54,6 @@ class CachingCLI:
 
 # Example usage
 cache_systems = {
-    "BaseCaching": BaseCaching(),
     "FIFOCache": FIFOCache(),
     "LIFOCache": LIFOCache(),
     "LRUCache": LRUCache(),
