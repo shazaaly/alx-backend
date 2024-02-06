@@ -20,8 +20,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt
-        pip install flask_babel==2.0.0 # Install Flask-Babel
+        pip3 install -r requirements.txt
+        pip3 install flask_babel==2.0.0 # Install Flask-Babel
 
     - name: Run tests
       run: |
