@@ -2,8 +2,26 @@
 """ A script for basic flask integration"""
 
 from flask import Flask, render_template
+from flask_babel import Babel
 
 app = Flask(__name__)
+babel = Babel(app)
+
+
+class Config:
+    """
+    Configuration class for the application.
+        Attributes:
+        Languages (list): List of supported languages.
+    """
+    LANGUAGES = ["en", "fr"]
+
+
+app.config.from_object(Config)
+
+
+babel.locate_selector = lambda: app.config['LANGUAGES'][0]
+app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
 
 
 @app.route("/")
