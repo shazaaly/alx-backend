@@ -15,13 +15,11 @@ class Config:
         Languages (list): List of supported languages.
     """
     LANGUAGES = ["en", "fr"]
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
+    BABEL_DEFAULT_LOCALE = 'en'
 
 
 app.config.from_object(Config)
-
-
-babel.locate_selector = lambda: app.config['LANGUAGES'][0]
-app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
 
 
 @app.route("/")
@@ -31,7 +29,7 @@ def hello():
     Returns:
         The rendered template for the index.html page.
     """
-    return render_template('0-index.html')
+    return render_template('1-index.html')
 
 
 if __name__ == '__main__':
