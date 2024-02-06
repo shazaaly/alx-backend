@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+""" A script for basic flask integration"""
+
+
 from flask import Flask, render_template
 
 
