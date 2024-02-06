@@ -18,7 +18,7 @@ This Python project demonstrates how to implement caching, pagination, and inter
    git clone https://github.com/shazaaly/alx-backend
    ```
 
-2. Install dependencies:
+2. Install dependencies for each directory listed:
 
    ```bash
    pip install -r requirements.txt
@@ -41,7 +41,7 @@ Contributions are welcome! If you have suggestions, bug reports, or want to add 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](ALX Program) file for details.
+This project is under [LICENSE](ALX Program).
 
 
 ## Contact
