@@ -3,9 +3,11 @@
 
 from flask import Flask, render_template, request
 from flask_babel import Babel
+from gettext import _
 
 app = Flask(__name__)
 babel = Babel(app)
+app.jinja_env.autoescape = True
 
 
 class Config:
