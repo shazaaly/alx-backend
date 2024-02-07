@@ -24,6 +24,7 @@ class Config:
 app.config.from_object(Config)
 
 
+# @babel.localeselector
 def get_locale():
     """
     Get the best matching language from the request's accepted languages.
@@ -32,16 +33,16 @@ def get_locale():
     """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
-babel.init_app(app, locale_selector=get_locale)
 
+babel.init_app(app, locale_selector=get_locale)
 
 
 @app.route("/")
 def hello():
-    """This function returns the rendered 
+    """This function returns the rendered
     template for the index.html page.
     Returns:
-        The rendered template for the 
+        The rendered template for the
         index.html page.
     """
     return render_template('3-index.html')
