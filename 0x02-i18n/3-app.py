@@ -2,8 +2,8 @@
 """ A script for basic flask integration"""
 
 from flask import Flask, render_template, request
-from flask_babel import Babel
-from gettext import _
+from flask_babel import Babel, gettext
+
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -24,25 +24,28 @@ class Config:
 app.config.from_object(Config)
 
 
-@babel.localeselector
 def get_locale():
-    """_summary_
+    """
+    Get the best matching language from the request's accepted languages.
 
-    Returns:
-        _type_: _description_
+    :return: The best matching language.
     """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+
+babel.init_app(app, locale_selector=get_locale)
+
 
 
 @app.route("/")
 def hello():
-    """This function returns the rendered template for the index.html page.
-
+    """This function returns the rendered 
+    template for the index.html page.
     Returns:
-        The rendered template for the index.html page.
+        The rendered template for the 
+        index.html page.
     """
-    return render_template('1-index.html')
+    return render_template('3-index.html')
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
