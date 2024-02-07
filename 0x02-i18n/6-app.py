@@ -24,8 +24,6 @@ app = Flask(__name__)
 app.config.from_object(Config)
 babel = Babel(app)
 
-
-
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
     2: {"name": "Beyonce", "locale": "en", "timezone": "US/Central"},
@@ -40,12 +38,12 @@ def get_user():
     Returns:
         _type_: _description_
     """
-    
+
     id = request.args.get('login_as')
     if id is not None and int(id) in users.keys():
         return users.get(int(id))
     return None
-  
+
 
 @app.before_request
 def before_request():
@@ -55,11 +53,8 @@ def before_request():
     """
     user = get_user()
     g.user = user
-    
-    
-    
-    
-    
+
+
 def get_locale():
     """
     Select and return best language match based on supported languages
@@ -67,7 +62,7 @@ def get_locale():
     loc_url = request.args.get('locale')
     user_settings_locale = g.user.get('locale')
     loc_header = request.headers.get('Accept-Language')
-    
+
     if loc_url in app.config['LANGUAGES']:
         return loc_url
     if (g.user and user_settings_locale in app.config['LANGUAGES']):
@@ -77,9 +72,8 @@ def get_locale():
     return app.config['LANGUAGES'][0]
 
 
-
-
 babel.init_app(app)  # No 'localeselector' attribute here
+
 
 @app.route('/', strict_slashes=False)
 def index() -> str:
