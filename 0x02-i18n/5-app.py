@@ -23,7 +23,6 @@ class Config(object):
 app = Flask(__name__)
 app.config.from_object(Config)
 babel = Babel(app)
-app.jinja_env.autoescape = True
 
 
 
