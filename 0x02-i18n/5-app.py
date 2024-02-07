@@ -35,25 +35,20 @@ users = {
 }
 
 
-def get_user(user_id):
+def get_user():
     """_summary_
 
     Returns:
         _type_: _description_
     """
-    login_as = request.args.get('login_as')
     
-    if user_id in users.keys():
-        user = users[user_id]
-        username = user.name
-        return user
-  
-    if not login_as:
-        return None
-    
+    id = request.args.get('login_as')
+    if id is not None and int(id) in users.keys():
+        return users.get(int(id))
     return None
+  
 
-#@app.before_request
+@app.before_request
 def before_request():
     """
     This function is executed before each request is processed.
